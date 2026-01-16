@@ -10,6 +10,11 @@ jobs:
       - name: recuperer le code
         uses: actions/checkout@v4
 
+      - name: Run pre-commit checks (CI safety net)
+        run: |
+          pip install pre-commit
+          pre-commit run --all-files
+
       - name: se connecter a docker Hub
         uses: docker/login-action@v3
         with:
