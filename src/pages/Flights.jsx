@@ -186,7 +186,7 @@ const Flights = () => {
               )}
             </>
           )}
-        </div>
+        </div> 
       </div>
       <TraveloFooter />
     </body>
