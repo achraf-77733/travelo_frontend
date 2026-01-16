@@ -132,13 +132,17 @@ li {
   font-family: Outfit;
   font-size: 17px;
   color: #332b46;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   height: 8px;
   border-radius: 100px;
 }
 .menu div:hover {
   background-color: #276afd;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   color: white;
   cursor: pointer;
 }
@@ -642,7 +646,9 @@ body {
   outline: none;
   font-size: 24px;
   animation: zoomIn 0.8s ease-out;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
   padding-right: 89px;
   display: flex; /* Make the button a flex container */
   align-items: center; /* Vertically center the content */

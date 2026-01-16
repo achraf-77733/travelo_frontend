@@ -33,9 +33,7 @@ const Flights = () => {
   useEffect(() => {
     const fetchSeatData = async (flightId) => {
       try {
-        const response = await fetch(
-          `/api/seats/${flightId}`
-        );
+        const response = await fetch(`/api/seats/${flightId}`);
         if (response.ok) {
           const data = await response.json();
           console.log("Fetched seat data:", data); // Debug
@@ -67,27 +65,24 @@ const Flights = () => {
 
   const handleReserveButtonClick = async () => {
     try {
-      const response = await fetch(
-        "/api/reservations/reserve",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+      const response = await fetch("/api/reservations/reserve", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          flightId: selectedFlightId,
+          seatName: selectedSeat,
+          passenger: {
+            // Include passenger data from your passengerData state
+            firstName: passengerData.firstName,
+            familyName: passengerData.familyName,
+            gender: passengerData.gender,
+            age: passengerData.age,
+            passport: passengerData.passport,
           },
-          body: JSON.stringify({
-            flightId: selectedFlightId,
-            seatName: selectedSeat,
-            passenger: {
-              // Include passenger data from your passengerData state
-              firstName: passengerData.firstName,
-              familyName: passengerData.familyName,
-              gender: passengerData.gender,
-              age: passengerData.age,
-              passport: passengerData.passport,
-            },
-          }),
-        }
-      );
+        }),
+      });
 
       if (response.ok) {
         // Handle successful reservation (e.g., show a success message)
@@ -171,7 +166,7 @@ const Flights = () => {
                   <div class="tickets">
                     <Ticket
                       flight={flights.find(
-                        (flight) => flight.idFlight === selectedFlightId
+                        (flight) => flight.idFlight === selectedFlightId,
                       )}
                     />
                     <div id="ticket2" className="ticket">

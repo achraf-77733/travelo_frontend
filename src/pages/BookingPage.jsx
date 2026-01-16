@@ -88,15 +88,12 @@ const BookingPage = () => {
         }),
       }).toString();
 
-      const response = await fetch(
-        `/api/flights/search?${queryParams}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`/api/flights/search?${queryParams}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (!response.ok) {
         console.error("Failed to fetch flights:", response.statusText);
@@ -238,8 +235,9 @@ const BookingPage = () => {
           />
         </div>
         <button
-          className={`SearchButton ${showSearchButton ? "activeSearchButton" : "inactiveSearchButton"
-            }`}
+          className={`SearchButton ${
+            showSearchButton ? "activeSearchButton" : "inactiveSearchButton"
+          }`}
           onClick={() => {
             if (showSearchButton) {
               console.log("Search button clicked. Submitting...");

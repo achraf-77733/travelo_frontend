@@ -239,13 +239,17 @@ li {
   font-family: Outfit;
   font-size: 17px;
   color: #332b46;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   height: 8px;
   border-radius: 100px;
 }
 .menu a:hover {
   background-color: #276afd;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   color: white;
 }
 .Sign li {
@@ -644,7 +648,9 @@ li {
   font-family: Outfit;
   font-size: 17px;
   animation: zoomIn 0.8s ease-out;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 .empty {
   background-color: white;
@@ -673,7 +679,9 @@ li {
   outline: none;
   font-size: 18px;
   animation: zoomIn 0.8s ease-out;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .reserveButton:hover {
