@@ -23,3 +23,18 @@ jobs:
       - name: pousser l'image docker
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/travelo_frontend:${{ github.ref_name }}
+
+      - name: Update Kubernetes Manifest
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git config --global user.email "ci-bot@example.com"
+          git config --global user.name "CI Bot"
+          git clone https://x-access-token:${PAT_TOKEN}@github.com/${{ github.repository_owner }}/travelo_k8s.git
+          cd travelo_k8s
+          # Mettre à jour le tag de l'image pour le frontend
+          sed -i "s|image: ${{ secrets.DOCKERHUB_USERNAME }}/travelo_frontend:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/travelo_frontend:${{ github.ref_name }}|" frontend_deployment.yml
+          git add frontend_deployment.yml
+          git commit -m "Update frontend image to ${{ github.ref_name }}"
+          git push origin main
+
