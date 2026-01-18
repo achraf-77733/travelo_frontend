@@ -42,7 +42,7 @@ jobs:
 
           # 3. Mise à jour du tag de l'image avec SED
           # Cette commande cherche l'image 'travelo_frontend' et remplace tout ce qui suit le ':' par le nouveau tag
-          sed -i "s|image: ${{ secrets.DOCKERHUB_USERNAME }}/travelo_frontend:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/travelo_frontend:${{ github.ref_name }}|g" frontend_deployement.yml
+          sed -i "s|image: ${{ secrets.DOCKERHUB_USERNAME }}/travelo_frontend:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/travelo_frontend:${{ github.ref_name }}|g" frontend_deployment.yml
           # 4. Commit et Push
           git add .
           git commit -m "Update frontend image to ${{ github.ref_name }} [skip ci]"
